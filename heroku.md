@@ -50,11 +50,14 @@ Explique como resolver los problemas que pueden surgir cuando la aplicación des
 * Véase
 * With a source tarball, which contains an app.json, call the https://api.heroku.com/app-setups endpoint to setup the app.json enabled application on Heroku. The request body must contain a source URL that points to the tarball of your application’s source code.
 Let’s use cURL to call the app-setups endpoint:
+
+~~~sh
 $ curl -n -X POST https://api.heroku.com/app-setups \
 -H "Content-Type:application/json" \
 -H "Accept:application/vnd.heroku+json; version=3" \
 -d '{"source_blob": { "url":"https://github.com/heroku/ruby-rails-sample/tarball/master/"} }'
-Copy
+
+~~~
 
 Explique los pasos para publicar un libro GitBook en Heroku
 * crear el libro en markdown con el formato y la estructura que requiere GitBook.

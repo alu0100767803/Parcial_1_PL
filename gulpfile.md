@@ -1,5 +1,5 @@
 Complete las partes que faltan del siguiente gulpfile.js en el que se lleva a cabo una tarea para la optimización (uglify/minify) de la aplicación de la práctica de la temperatura:
-~~~
+~~~javascript
 /tmp/pl-grado-temperature-converter(karma)]$ cat gulpfile.js
 
 
@@ -24,8 +24,8 @@ gulp.task('minify', function () {
   .pipe(gulp.dest('./minified/'))
   });
   ~~~
-  Explique los pasos para publicar un libro GitBook en GitHub usando gulp
-  ~~~
+Explique los pasos para publicar un libro GitBook en GitHub usando gulp
+~~~javascript
   var gulp = require('gulp');
   var ghPages = require('gulp-gh-pages');
 
@@ -33,12 +33,16 @@ gulp.task('minify', function () {
     return gulp.src('./minified/**/*')
     .pipe(ghPages());
     });
-    ~~~
-  Explique los pasos para actualizar automáticamente los HTML del libro GitBook en su máquina virtual del iaas usando gulp
 
+~~~
+  Explique los pasos para actualizar automáticamente los HTML del libro GitBook en su máquina virtual del iaas usando gulp
+  ~~~javascript
   var gulp = require('gulp');
   var shell = require ('gulp-shell');
 
   ¿?¿?¿?¿?¿?¿?
+
   gulp.task ('actualizar', shell.task(['ssh prolen cp /public' /book/]))
+
   ¿?¿?¿?¿?¿?¿?
+  ~~~
