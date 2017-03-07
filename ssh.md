@@ -8,12 +8,12 @@ Como se publica una clave?
 * `>$ ssh-copy-id usarname@host.com`
 
 Indique como se puede configurar el cliente SSH para simplificar la conexión
-* Generando una entrada en el fichero configurar
+* Generando una entrada en el fichero config
 ~~~
 host alias
   Hostname example.com
-  Port 2020
   Username username
+  IdentityFile /ruta de la clave privada
 ~~~  
 ¿Cómo puedo ejecutar un script en una máquina accesible via SSH?
 

@@ -3,10 +3,12 @@
 
 ¿Como se escribe un código JavaScript de manera que se muestre con syntax highlingting?
 
->`\``javaScript
+>\`\`\`javaScript
+
 var a = 3;
 var b = b+1;
-\```
+
+\`\`\`
 
 ```javaScript
 var a = 3;
@@ -31,9 +33,9 @@ Escriba el código MD para producir una tabla como esta:
 | Content Cell | Content Cell |
 
 \| First Header | Second Header |
-| -- | -- |
-| Content Cell | Content Cell |
-| Content Cell | Content Cell |
+\| -- | -- |
+\| Content Cell | Content Cell |
+\| Content Cell | Content Cell |
 
 ¿Donde puedo encontrar la URL del repositorio en GitBook del libro?
 * book.json
