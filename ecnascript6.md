@@ -16,7 +16,7 @@ class Contact {
 }
 ~~~
 ¿Cuanto vale this en la línea 6?
-* This apunta a la función en la que se llama, en este caso si la fucnción declarada en la linea 5 no define email, su valor es undefined.
+* This apunta a la función en la que se llama, en este caso si la fucnción declarada en la linea 5 no define email, dará reference error.
 
 ¿Como podemos reescribir este código en ECMA6 para que this refiera al objeto Contact?
 ~~~javascript

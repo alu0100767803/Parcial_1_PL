@@ -1,5 +1,6 @@
 ¿Con que comando creo el fichero package.json?
 * npm init
+
 Explique en consiste el versionado semántico/semantic versioning. ¿Cual es el nombre en inglés de los tres números de version? ¿Como cambian?
 * Es un sistema de numeración de versiones formado por tres núnmeros, X.Y.Z, en el que cada número cambian en función de las modificaciones de el código.
 * X = major, Y = minor, Z = Patch

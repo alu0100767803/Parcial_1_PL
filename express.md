@@ -52,10 +52,11 @@ var express = require('express');
 var path = require('path');
 var route = express.Router();
 
-route.get('/:username', function(req, res){
+route.get('/:username', function(req, res, next){
   console.log(req.method);
   console.log(req.path);
   console.log(req.body);
+  next();
 }),
 module.exports = route;
 ~~~
@@ -88,4 +89,3 @@ Explique que hay que hacer para desplegar la aplicación en la máquina virtual 
   * ssh prolen
   * cd nuestroproyecto
   * node app.js, donde app.js es nuestra app node.
-  
