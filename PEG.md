@@ -103,16 +103,18 @@ por ejemplo var r = PEG.parse(input);
    ````
  7. Ejercicio del examen parcial.
  Escribe un pegs que traduzca:
-  	
+ ````
 	b -> 5:
 	c -> 2:
 	a -> 4*b+c:
 	b+c+a:
+````
 En lenguaje Javascript:
+````
 	let $a,$b,$c;
 	$b = 5;
 	$c = 2;
 	$a = 4*$b*$c;
 	$b+$c+$a;
-
+````
    ​
