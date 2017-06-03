@@ -164,8 +164,8 @@ por ejemplo var r = PEG.parse(input);
    ````
 
    ​
-10.Ejercicio del examen parcial.
-Escribe un pegs que traduzca:
+   10.Ejercicio del examen parcial.
+   Escribe un pegs que traduzca:
 
  ````
 	b -> 5:
@@ -181,4 +181,52 @@ En lenguaje Javascript:
 	$a = 4*$b*$c;
 	$b+$c+$a;
 ````
-   ​
+````
+{
+let variables = []
+}
+
+start
+    = c:colons{return "let " + variables.join() + "\n" + c;}
+    
+colons
+    = a:assign COLONS c:colons{return a + ";\n" + c;}
+        /a:assign COLONS{return a + ";";}
+        
+assign
+    = id:ID ARROW a:additive{ variables.push(id); return id + " = " + a;}
+        /additive
+    
+additive
+    = m:multiplicative op:ADDOP a:additive {return m + op + a;}
+        /multiplicative
+        
+multiplicative
+    = p:primary op:MULOP m:multiplicative {return p + op + m;}
+        /parent
+
+parent
+    = primary 
+        /LEFTPAR additive RIGHTPAR
+    
+        
+primary
+    =NUMBER
+    / ID
+
+_ = $[ \n\t\r]*
+
+ARROW = _"->"_;
+COLONS = _":"_;
+ADDOP = PLUS / MINUS
+MULOP = MULT / DIV
+PLUS = _"+"_{return "+";}
+MINUS = _"-"_{return "-";}
+MULT = _"*"_{return "*";}
+DIV = _"/"_{return "/";}
+NUMBER = _ number:$[0-9]+ _ {return parseInt(number, 10);}
+ID = _ id:$[a-z]+ _ {return "$" + id;}
+LEFTPAR = _"("_
+RIGHTPAR = _")"_
+````
+
