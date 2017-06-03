@@ -64,7 +64,48 @@
    ```
 
    ````
+   start
+       = s:semicolon{return s;}
+       
+   semicolon
+       = a:assign op:SEMICOLON sc:semicolon{return a + op + "\n" + sc;}
+           /assign
+           
+   assign
+       = id:ID eq:EQUAL a:additive{ return "var " + id + " " + eq + " " + a;}
+           /additive
+       
+   additive
+       = m:multiplicative op:ADDOP a:additive {return m + op + a;}
+           /multiplicative
+           
+   multiplicative
+       = p:primary op:MULOP m:multiplicative {return p + op + m;}
+           /parent
 
+   parent
+       = primary 
+           /l:LEFTPAR a:additive r:RIGHTPAR{return l + a + r;}
+       
+           
+   primary
+       =NUMBER
+       / ID
+
+   _ = $[ \n\t\r]*
+
+   EQUAL = _"="_{return "=";}
+   SEMICOLON = _";"_{return ";";}
+   ADDOP = PLUS / MINUS
+   MULOP = MULT / DIV
+   PLUS = _"+"_{return "+";}
+   MINUS = _"-"_{return "-";}
+   MULT = _"*"_{return "*";}
+   DIV = _"/"_{return "/";}
+   NUMBER = _ number:$[0-9]+ _ {return parseInt(number, 10);}
+   ID = _ id:$[a-z]+ _ {return id;}
+   LEFTPAR = _"("_
+   RIGHTPAR = _")"_
    ````
 
 4. Escriba un peg que reconozca las sentencias `if then ...` e `if then ... else ...` asociando cada `else` con el `if` mas cercano`if a then if b then o else o`
@@ -101,14 +142,34 @@ por ejemplo var r = PEG.parse(input);
    BEGIN = "(*"
    END = "*)"
    ````
- 7. Ejercicio del examen parcial.
- Escribe un pegs que traduzca:
+   ​
+
+7. Escriba un peg que reconozca el lenguaje \{ a^nb^nc^n / n \ge 1 \}{anbncn/n≥1}
+
+   ```
+   S = &(A 'c') 'a'+ B:B !.  { return B; }
+   A = 'a' A:A? 'b' { if (A) { return A+1; } else return 1; }
+   B = 'b' B:B? 'c' { if (B) { return B+1; } else return 1; }
+   ```
+
+8. Indique como es la estructura de tabla de símbolos de un compilador y como se construye. Explique como el anidamiento de las tablas de símbolos refleja el ámbito de las variables
+
+   ```
+
+   ```
+
+9. Indique como se hace el análisis de tipos en un compilador mediante la decoración del árbol con el atributo `tipo`. Señale las diferentes formas en la que se pueden resolver las cincompatibilidades de tipos
+
+   ​
+10.Ejercicio del examen parcial.
+Escribe un pegs que traduzca:
+
  ````
 	b -> 5:
 	c -> 2:
 	a -> 4*b+c:
 	b+c+a:
-````
+ ````
 En lenguaje Javascript:
 ````
 	let $a,$b,$c;
