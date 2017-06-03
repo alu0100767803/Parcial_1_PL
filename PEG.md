@@ -51,7 +51,6 @@
    c = 2;
    a = 4*b+c;
    b+c+a
-   Copy
    ```
 
    se debería traducir como:
@@ -159,6 +158,10 @@ por ejemplo var r = PEG.parse(input);
    ```
 
 9. Indique como se hace el análisis de tipos en un compilador mediante la decoración del árbol con el atributo `tipo`. Señale las diferentes formas en la que se pueden resolver las cincompatibilidades de tipos
+
+   ````
+
+   ````
 
    ​
 10.Ejercicio del examen parcial.
